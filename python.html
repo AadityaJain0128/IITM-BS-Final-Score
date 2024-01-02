@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Python{% endblock title %}
+{% block body %}
+    <h1 class="d-flex justify-content-center">Calc for Final Marks</h1>
+    <div class="d-flex justify-content-center">This Score will only be valid if you are eligible for attending End Term Exam</div>
+    <br><br>
+    <div class="d-flex justify-content-center">
+        {% if msg %}
+            <span style="font-size: 18px; color: {{ colour }};">{{ msg }}</span>
+        {% endif %}
+    </div>
+    <br><br>
+    <div class="d-flex justify-content-center">
+        <form method="POST">
+            <label for="gaa" class="form-label">Average of Best 10 out of 11 Graded Assignment</label>
+            <input type="number" class="form-control" name="gaa" value="{{ gaa }}" step=".01" required>
+            <label for="qz1" class="form-label">Marks in Quiz 1</label>
+            <input type="number" class="form-control" name="qz1" value="{{ qz1 }}" step=".01" required>
+            <label for="oppe1" class="form-label">Marks in OPPE 1</label>
+            <input type="number" class="form-control" name="oppe1" value="{{ oppe1 }}" step=".01" required>
+            <label for="oppe2" class="form-label">Marks in OPPE 2</label>
+            <input type="number" class="form-control" name="oppe2" value="{{ oppe2 }}" step=".01" required>
+            <label for="wta" class="form-label">Average of best 6 out of 8 Mock Assignments</label>
+            <input type="number" class="form-control" name="wta" value="{{ wta }}" step=".01" required>
+            <br>
+            <button type="submit" class="btn btn-outline-light">Calculate</button>
+            <br><br>
+            <label for="final" class="form-label">Required Marks in End Term</label>
+            <input type="text" class="form-control" name="final" value="{{ F }}" step=".01" readonly>
+        </form>
+    </div>
+{% endblock body %}
